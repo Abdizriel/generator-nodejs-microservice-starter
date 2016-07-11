@@ -1,0 +1,15 @@
+# NodeJS RESTful API Microservice
+microservice:
+    build: ./dist
+    links:
+        - mongo:mongo
+    ports:
+        - "9000:9000"
+    environment:
+        - "NODE_ENV=production"
+
+# MongoDB
+mongo:
+    image: mongo
+    ports:
+        - "27017:27017"
