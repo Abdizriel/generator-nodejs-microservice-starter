@@ -1,7 +1,7 @@
 {
   "name": "generator-nodejs-microservice-starter",
   "version": "1.0.0",
-  "description": "NodeJS RESTful API Microservice Starter",
+  "description": "Generator of NodeJS RESTful API Microservice Starter",
   "homepage": "https://github.com/Abdizriel/nodejs-microservice-starter",
   "author": {
     "name": "Marcin Mrotek",
