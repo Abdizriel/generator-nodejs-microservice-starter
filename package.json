@@ -1,7 +1,7 @@
 {
   "name": "generator-nodejs-microservice-starter",
-  "version": "1.0.0",
-  "description": "NodeJS RESTful API Microservice Starter",
+  "version": "1.1.0",
+  "description": "Generarate a NodeJS RESTful API Microservice Starter",
   "homepage": "https://github.com/Abdizriel/nodejs-microservice-starter",
   "author": {
     "name": "Marcin Mrotek",
@@ -17,6 +17,7 @@
     "nodejs",
     "microservice",
     "mongodb",
+    "express",
     "yeoman-generator"
   ],
   "dependencies": {

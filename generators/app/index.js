@@ -47,6 +47,31 @@ module.exports = yeoman.Base.extend({
       this.templatePath('README.md'),
       this.destinationPath('README.md')
     );
+    // Copy babelrc
+    this.fs.copy(
+      this.templatePath('.babelrc'),
+      this.destinationPath('.babelrc')
+    );
+    // Copy editorconfig
+    this.fs.copy(
+      this.templatePath('.editorconfig'),
+      this.destinationPath('.editorconfig')
+    );
+    // Copy gitignore
+    this.fs.copy(
+      this.templatePath('.gitignore'),
+      this.destinationPath('.gitignore')
+    );
+    // Copy jshintrc
+    this.fs.copy(
+      this.templatePath('.jshintrc'),
+      this.destinationPath('.jshintrc')
+    );
+    // Copy Travis
+    this.fs.copy(
+      this.templatePath('.travis.yml'),
+      this.destinationPath('.travis.yml')
+    );
     if(this.props.docker) {
       // Copy Dockerfile
       this.fs.copy(
@@ -57,6 +82,11 @@ module.exports = yeoman.Base.extend({
       this.fs.copy(
         this.templatePath('docker-compose.yml'),
         this.destinationPath('docker-compose.yml')
+      );
+      // Copy NGiNX
+      this.fs.copy(
+        this.templatePath('nginx'),
+        this.destinationPath('nginx')
       );
     }
   },
