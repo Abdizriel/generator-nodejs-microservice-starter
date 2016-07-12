@@ -13,10 +13,16 @@ describe('generator-nodejs-microservice-starter:app', function () {
   it('creates files', function () {
     assert.file([
       'server',
+      'nginx',
       'README.md',
       'Procfile',
       'package.json',
       'LICENSE',
+      '.travis.yml',
+      '.jshintrc',
+      '.gitignore',
+      '.editorconfig',
+      '.babelrc',
       'Dockerfile',
       'docker-compose.yml'
     ]);
