@@ -10,7 +10,7 @@ var plumber = require('gulp-plumber');
 var coveralls = require('gulp-coveralls');
 
 gulp.task('static', function () {
-  return gulp.src('**/*.js')
+  return gulp.src(['!generators/app/templates', '**/*.js'])
     .pipe(excludeGitignore())
     .pipe(eslint())
     .pipe(eslint.format())
@@ -21,16 +21,7 @@ gulp.task('nsp', function (cb) {
   nsp({package: path.resolve('package.json')}, cb);
 });
 
-gulp.task('pre-test', function () {
-  return gulp.src('generators/**/*.js')
-    .pipe(excludeGitignore())
-    .pipe(istanbul({
-      includeUntested: true
-    }))
-    .pipe(istanbul.hookRequire());
-});
-
-gulp.task('test', ['pre-test'], function (cb) {
+gulp.task('test', function (cb) {
   var mochaErr;
 
   gulp.src('test/**/*.js')
@@ -46,7 +37,7 @@ gulp.task('test', ['pre-test'], function (cb) {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['generators/**/*.js', 'test/**'], ['test']);
+  gulp.watch(['test/**'], ['test']);
 });
 
 gulp.task('coveralls', ['test'], function () {
@@ -54,6 +45,7 @@ gulp.task('coveralls', ['test'], function () {
     return;
   }
 
+  console.log(__dirname);
   return gulp.src(path.join(__dirname, 'coverage/lcov.info'))
     .pipe(coveralls());
 });
