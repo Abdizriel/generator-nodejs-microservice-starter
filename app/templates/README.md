@@ -1,15 +1,16 @@
-# NodeJS RESTful API Microservice Starter v1.1.0
-This repository contains a full configuration that runs NodeJS RESTful API Microservice Starter.
+# NodeJS RESTful API <%= microservice %> Microservice
+This repository contains a full configuration that runs NodeJS RESTful API <%= app %> Microservice.
 
-[![Build Status](https://secure.travis-ci.org/Abdizriel/nodejs-microservice-starter.png?branch=master)](https://travis-ci.org/Abdizriel/nodejs-microservice-starter)
-[![Coverage Status](https://coveralls.io/repos/github/Abdizriel/nodejs-microservice-starter/badge.svg?branch=master)](https://coveralls.io/github/Abdizriel/nodejs-microservice-starter?branch=master)
-[![Dependency Status](https://img.shields.io/david/Abdizriel/nodejs-microservice-starter.svg)](https://david-dm.org/Abdizriel/nodejs-microservice-starter)
-[![Dev-Dependency Status](https://img.shields.io/david/dev/Abdizriel/nodejs-microservice-starter.svg)](https://david-dm.org/Abdizriel/nodejs-microservice-starter#info=devDependencies)
+[![Build Status](https://secure.travis-ci.org/<%= username %>/<%= app %>.png?branch=master)](https://travis-ci.org/<%= username %>/<%= app %>)
+[![Coverage Status](https://coveralls.io/repos/github/<%= username %>/<%= app %>/badge.svg?branch=master)](https://coveralls.io/github/<%= username %>/<%= app %>?branch=master)
+[![Dependency Status](https://img.shields.io/david/<%= username %>/<%= app %>.svg)](https://david-dm.org/<%= username %>/<%= app %>)
+[![Dev-Dependency Status](https://img.shields.io/david/dev/<%= username %>/<%= app %>.svg)](https://david-dm.org/<%= username %>/<%= app %>#info=devDependencies)
 
 ## Requirements
 
 * [MongoDB](https://www.mongodb.com/download-center "MongoDB")
-* [NodeJS](https://nodejs.org/en/download "NodeJS")
+* [NodeJS](https://nodejs.org/en/download "NodeJS")<% if (docker) { %>
+* [Docker](https://www.docker.com/products/docker "Docker")<% } %>
 
 ## Build for local development
 
@@ -58,7 +59,7 @@ Use following command to run tests coverage:
 npm run coverage
 ```
 
-## Docker container
+<% if (docker) { %>## Docker container
 
 There is available Docker container and Docker Composer if you would like to run many NodeJS Microservices.
 
@@ -74,9 +75,9 @@ Then use following command to build Docker containers:
 docker-compose up -d --build
 ```
 
-See `Dockerfile` and `docker-compose.yml` for more details.
+See `Dockerfile` and `docker-compose.yml` for more details.<% } %>
 
-## Deployment
+<% if (heroku) { %>## Deployment
 
 ### Heroku
 
@@ -86,10 +87,4 @@ See `Dockerfile` and `docker-compose.yml` for more details.
 * Log in to Heroku by using following command `heroku login`
 * Run following command `heroku create`
 * Run following command `heroku addons:create mongolab` to add MongoDB to your application.
-* Run following command `git push heroku master` to push your application to Heroku.
-
-## TODO
-
-* [#2](https://github.com/Abdizriel/nodejs-microservice-starter/issues/2) API Authentication oAuth2
-* [#3](https://github.com/Abdizriel/nodejs-microservice-starter/issues/3) Waterline ORM
-* [#5](https://github.com/Abdizriel/nodejs-microservice-starter/issues/5) 100% Test Coverage
+* Run following command `git push heroku master` to push your application to Heroku.<% } %>

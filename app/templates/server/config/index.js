@@ -5,7 +5,6 @@ import path from 'path';
 const isProcessEnvSet = (name, required = true) => {
   if (!process.env[name] && required) throw new Error(`You must set the ${name} environment variable`);
   if (!process.env[name] && !required) console.warn(`Optional environment variable ${name} is not set. Default would be used.`);
-
 };
 
 const requiredProcessEnv = ['NODE_ENV', 'MONGODB_URI'];
