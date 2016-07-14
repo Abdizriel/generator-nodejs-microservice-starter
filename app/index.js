@@ -1,12 +1,12 @@
 'use strict';
 
-const Base = require('yeoman-generator').Base;
-const MainGenerator = require('../_generator').MainGenerator;
+import { Base } from 'yeoman-generator';
+import MainGenerator from '../_generator';
 
-module.exports = class NodeMicroservice extends Base {
+export default class NodeMicroservice extends Base {
 
-  constructor(args, options, config) {
-    super(args, options, config);
+  constructor( ...args ) {
+    super(...args);
 
     this.generator = new MainGenerator(this);
   }
@@ -17,6 +17,7 @@ module.exports = class NodeMicroservice extends Base {
 
   prompting() {
     this.generator.sayHello();
+
   }
 
   writing() {
@@ -27,7 +28,7 @@ module.exports = class NodeMicroservice extends Base {
     this.generator.install();
   }
 
-  promptUser() {
+  prompUser() {
     this.generator.promptUser();
   }
 

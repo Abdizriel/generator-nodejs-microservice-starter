@@ -3,7 +3,7 @@
 import chalk from 'chalk';
 import yosay from 'yosay';
 
-exports.MainGenerator = class MainGenerator {
+export default class MainGenerator {
 
   constructor(gen) {
     this.wrapper = gen;
@@ -71,8 +71,10 @@ exports.MainGenerator = class MainGenerator {
     this.wrapper.prompt(prompts, props => {
       this.wrapper.username = props.username;
       this.wrapper.email = props.email;
+
       this.wrapper.config.set('username', this.wrapper.username);
       this.wrapper.config.set('email', this.wrapper.email);
+
       done();
     });
 
@@ -82,7 +84,7 @@ exports.MainGenerator = class MainGenerator {
   promptMicroservice() {
     const done = this.wrapper.async();
 
-    let prompts =[
+    let prompts = [
       {
         name: 'microservice',
         message: 'What is the name of your microservice?',
@@ -90,7 +92,7 @@ exports.MainGenerator = class MainGenerator {
       }
     ];
 
-    this.wrapper.prompt(prompts, (props) => {
+    this.wrapper.prompt(prompts, props => {
       this.wrapper.microservice = props.microservice;
       this.wrapper.config.set('microservice', this.wrapper.microservice);
       done();
@@ -109,7 +111,7 @@ exports.MainGenerator = class MainGenerator {
       default: false
     }];
 
-    this.wrapper.prompt(_prompts, (props) => {
+    this.wrapper.prompt(_prompts, props => {
       this.wrapper.docker = props.docker;
       this.wrapper.config.set('docker', this.wrapper.docker);
       done();
@@ -128,7 +130,7 @@ exports.MainGenerator = class MainGenerator {
       default: false
     }];
 
-    this.wrapper.prompt(_prompts, (props) => {
+    this.wrapper.prompt(_prompts, props => {
       this.wrapper.heroku = props.heroku;
       this.wrapper.config.set('heroku', this.wrapper.heroku);
       done();
@@ -137,4 +139,4 @@ exports.MainGenerator = class MainGenerator {
     this.wrapper.config.save();
   }
 
-}
+};
